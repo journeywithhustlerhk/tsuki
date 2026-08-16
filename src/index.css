@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Work+Sans:wght@400;500;600&family=Caveat:wght@500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  /* Soft base — the paper of the scrapbook */
+  --color-ivory: #faf4e8;
+  --color-cream: #f2e7d5;
+  --color-paper: #fbf7ee;
+
+  /* Cool soft accents */
+  --color-sky: #c3dbe3;
+  --color-babypink: #eec3c9;
+  --color-lavender: #cec1df;
+
+  /* Indian accent colours — used with intention, not everywhere */
+  --color-royalred: #9c2b33;
+  --color-maroon: #431622;
+  --color-saffron: #dd8a35;
+  --color-gold: #b1854c;
+  --color-emerald: #2e5b43;
+  --color-mutedpink: #d9a3ab;
+
+  --color-ink: #2c1e1a;
+
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Work Sans', system-ui, sans-serif;
+  --font-hand: 'Caveat', cursive;
+
+  --shadow-paper: 0 1px 2px rgba(44, 30, 26, 0.06), 0 8px 24px -12px rgba(44, 30, 26, 0.18);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(177, 133, 76, 0.05), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(46, 91, 67, 0.04), transparent 45%);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-royalred);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .font-hand {
+    font-family: var(--font-hand);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .paper-shadow {
+    box-shadow: var(--shadow-paper);
+  }
+}
