@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef , useState } from 'react'
 import type { Chapter } from '../types/content'
 import { ProgressMoon } from './ProgressMoon'
 
@@ -10,6 +10,7 @@ interface NavigationProps {
 
 export function Navigation({ chapters, completed, total }: NavigationProps) {
   const [open, setOpen] = useState(false)
+  const navRef = useRef<HTMLElement>(null)
   const [activeId, setActiveId] = useState<string>(chapters[0]?.id ?? '')
 
   useEffect(() => {
@@ -37,7 +38,7 @@ export function Navigation({ chapters, completed, total }: NavigationProps) {
           TSUKI
         </a>
 
-        <nav className="hidden flex-1 items-center gap-1 overflow-x-auto lg:flex">
+        <nav ref={navRef} className="hidden flex-1 items-center gap-1 overflow-x-auto lg:flex">
           {chapters.map((c) => (
             <a
               key={c.id}
