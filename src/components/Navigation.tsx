@@ -30,7 +30,11 @@ export function Navigation({ chapters, completed, total }: NavigationProps) {
     sections.forEach((s) => observer.observe(s))
     return () => observer.disconnect()
   }, [chapters])
-
+  useEffect(() => {
+    const activeLink = navRef.current?.querySelector<HTMLAnchorElement>(`a[href="#${activeId}"]`)
+    activeLink?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+  }, [activeId])
+   
   return (
     <header className="sticky top-0 z-40 border-b border-ink/[0.06] bg-ivory/85 backdrop-blur-sm">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
