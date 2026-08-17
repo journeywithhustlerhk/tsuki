@@ -37,7 +37,7 @@ export function Navigation({ chapters, completed, total }: NavigationProps) {
           TSUKI
         </a>
 
-        <nav className="hidden flex-1 items-center justify-center gap-1 overflow-x-auto lg:flex">
+        <nav className="hidden flex-1 items-center gap-1 overflow-x-auto lg:flex">
           {chapters.map((c) => (
             <a
               key={c.id}
